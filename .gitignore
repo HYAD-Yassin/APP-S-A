@@ -7,7 +7,6 @@ Thumbs.db
 .env
 *.iml
 
-backend/src/main/resources/application.properties  # If contains secrets
 
 # Frontend specific
 frontend/node_modules/

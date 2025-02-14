@@ -1,0 +1,466 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 210 40% 96%;
+    --card-foreground: 240 0% 0%;
+    --primary: 347 77% 50%;
+    --primary-foreground: 0 0% 100%;
+    --muted: 213 27% 84%;
+    --muted-foreground: 215 16% 47%;
+    --destructive: 350 100% 40%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 32% 91%;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 14.9%;
+    --primary: 347 77% 50%;
+    --primary-foreground: 0 0% 100%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --destructive: 350 100% 40%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+  }
+
+  :root[data-theme='violet'] {
+    --primary: 262.1 83.3% 57.8%;
+  }
+
+  .dark[data-theme='violet'] {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+    --card: 222 47% 7%;
+    --card-foreground: 210 20% 98%;
+    --primary: 263.4 70% 50.4%;
+    --primary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --destructive: 350 100% 40%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+  }
+
+  :root[data-theme='red'] {
+    --primary: 350 100% 40%;
+  }
+
+  .dark[data-theme='red'] {
+    --primary: 350 100% 40%;
+    --primary-foreground: 0 85.7% 97.3%;
+  }
+
+  :root[data-theme='blue'] {
+    --primary: 221.2 83.2% 53.3%;
+  }
+
+  .dark[data-theme='blue'] {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 7%;
+    --card-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --destructive: 350 100% 40%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+  }
+
+  :root[data-theme='orange'] {
+    --primary: 24.6 95% 53.1%;
+  }
+
+  .dark[data-theme='orange'] {
+    --background: 20 14.3% 4.1%;
+    --foreground: 60 9.1% 97.8%;
+    --card: 24 10% 7%;
+    --card-foreground: 60 9.1% 97.8%;
+    --primary: 20.5 90.2% 48.2%;
+    --primary-foreground: 60 9.1% 97.8%;
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+    --border: 12 6.5% 15.1%;
+  }
+
+  :root[data-theme='yellow'] {
+    --primary: 47.9 95.8% 53.1%;
+  }
+
+  .dark[data-theme='yellow'] {
+    --background: 20 14.3% 4.1%;
+    --foreground: 60 9.1% 97.8%;
+    --card: 24 10% 7%;
+    --card-foreground: 60 9.1% 97.8%;
+    --primary: 47.9 95.8% 53.1%;
+    --primary-foreground: 26 83.3% 14.1%;
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 12 6.5% 15.1%;
+  }
+
+  :root[data-theme='green'] {
+    --primary: 142.1 76.2% 36.3%;
+  }
+
+  .dark[data-theme='green'] {
+    --primary: 142.1 70.6% 45.3%;
+    --primary-foreground: 144.9 80.4% 10%;
+  }
+
+
+  :root {
+
+    --glitter: url("https://assets.codepen.io/13471/silver-glitter-background.png");
+    --duration: 6.66s;
+  
+  }
+  
+  .card-front:before {
+  
+    content: "";
+    inset: 0;
+    position: absolute;
+    transform: translate3d(0, 0, 0.01px);
+  
+    background-image: var(--glitter), var(--glitter),
+      linear-gradient(120deg, black 25%, white, black 75%);
+    background-size: 100% 100%, 80% 80%, 200% 200%;
+    background-blend-mode: multiply, multiply, overlay;
+    background-position: 50% 50%, 50% 50%, 50% 50%;
+  
+    mix-blend-mode: color-dodge;
+    filter: brightness(2) contrast(0.8);
+  
+    animation: bg var(--duration) ease infinite;
+  
+  }
+  
+  .card-front {
+  
+    display: grid;
+    position: relative;
+    transform: translate3d(0, 0, 0.01px);
+    width: 90vw;
+    max-width: 580px;
+    aspect-ratio: 3/2;
+  
+    border-radius: 3.5% 3.5% 3.5% 3.5% / 5% 5% 5% 5%;
+  
+    background-image: url(https://simey-credit-card.netlify.app/img/bgs/default.jpg);
+    background-size: cover;
+  
+    box-shadow: 0 30px 40px -25px rgba(15, 5, 20, 1), 0 20px 50px -15px rgba(15, 5, 20, 1);
+    overflow: hidden;
+    animation: tilt var(--duration) ease infinite;
+    image-rendering: optimizequality;
+  
+  }
+  
+  .card-front:after {
+    
+    content: "";
+    background: none, none, linear-gradient(125deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.4) 0.1%, rgba(255,255,255,0) 60%);
+    background-size: 200% 200%;
+    mix-blend-mode: hard-light;
+    animation: bg var(--duration) ease infinite;
+    
+  }
+  
+  
+  
+  
+  
+  
+  .card-front * {
+  
+    font-family: PT Mono, monospace;
+  
+  }
+  
+  .cardLogo,
+  .expiry,
+  .name,
+  .number,
+  .chip,
+  .icon {
+  
+    color: #ccc;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    font-size: clamp(0.75rem, 2.8vw + 0.2rem, 1.1rem);
+    inset: 5%;
+    text-shadow: -1px -1px 0px rgba(255,255,255,0.5),1px -1px 0px rgba(255,255,255,0.5),1px 1px 0px rgba(0,0,0,0.5),1px -1px 0px rgba(0,0,0,0.5);
+    z-index: 5;
+  
+  }
+  
+  .name, .number, .expiry {
+    background-image: linear-gradient(to bottom, #ededed 20%, #bababa 70%), none,
+      linear-gradient(120deg, transparent 10%, white 40%, white 60%, transparent 90%);
+    background-size: cover, cover, 200%;
+    background-position: 50% 50%;
+    background-blend-mode: overlay;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: bg var(--duration) ease infinite;
+    
+  }
+  
+  .number {
+  
+    font-family: PT Mono, monospace;
+    text-align: center;
+    font-size: clamp(1rem, 8vw - 0.5rem, 2.5rem);
+    letter-spacing: 0.025em;
+    top: 60%;
+    bottom: auto;
+  
+  }
+  .expiry,
+  .name {
+  
+    top: auto;
+  
+  }
+  
+  .name {
+  
+    right: auto;
+    max-width: 180px;
+    line-height: 1.2;
+    text-align: left;
+  
+  }
+  
+  .expiry {
+  
+    left: auto;
+  
+  }
+  
+  .cardLogo {
+  
+    bottom: auto;
+    left: auto;
+    width: 15%;
+    filter: invert(1) saturate(0) brightness(1) contrast(1.2);
+    mix-blend-mode: screen;
+  
+  }
+  
+  .chip {
+  
+    display: grid;
+    place-items: center;
+    width: 14%;
+    aspect-ratio: 5/4;
+    left: 10%;
+    top: 30%;
+    border-radius: 10% 10% 10% 10% / 15% 15% 15% 15%;
+  
+    background-image: none, none,
+      linear-gradient(120deg, #777 10%, #ddd 40%, #ddd 60%, #777 90%);
+    background-size: 200% 200%;
+    background-position: 50% 50%;
+  
+    overflow: hidden;
+    animation: bg var(--duration) ease infinite;
+  
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .chip svg {
+  
+    display: block;
+    width: 90%;
+    fill: none;
+    stroke: #444;
+    stroke-width: 2;
+  
+  }
+  
+  .contactless {
+  
+    position: absolute;
+    left: 23%;
+    top: 30%;
+    width: 12%;
+    rotate: 90deg;
+  
+    stroke-width: 1.25;
+    stroke: currentColor;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.5;
+  
+  }
+  
+  .icon {
+  
+    width: 25%;
+    bottom: auto;
+    right: auto;
+    top: 0;
+    left: 15px;
+    filter: invert(1) hue-rotate(180deg) saturate(5) contrast(2);
+  
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  @keyframes tilt {
+  
+    0%, 100% { transform: translate3d(0, 0, 0.01px) rotateY(-20deg) rotateX(5deg); }
+    50% { transform: translate3d(0, 0, 0.01px) rotateY(20deg) rotateX(5deg); }
+  
+  }
+  
+  @keyframes bg {
+  
+    0%, 100% { background-position: 50% 50%, calc(50% + 1px) calc(50% + 1px), 0% 50%; }
+    50% { background-position: 50% 50%, calc(50% - 1px) calc(50% - 1px), 100% 50%; }
+  
+  }
+  
+  
+  main {
+  
+    display: grid;
+    grid-template-rows: minmax(20px,100px) 1fr;
+    place-items: center;
+    min-height: 100%;
+    perspective: 1000px;
+  
+  }
+  
+  body {
+  
+    color: white;
+    background: #333844;
+    font-family: "Heebo", sans-serif;
+    background: url(https://images.pexels.com/photos/3612932/pexels-photo-3612932.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(5px);
+  
+  }
+  
+  body,
+  html {
+  
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  
+  }
+  
+  #chip,
+  #contactless {
+  
+    display: none;
+  
+  }
+  
+  h1 {
+    margin: 1em;
+    color: white;
+    opacity: 0.7;
+    text-shadow: 0 1px 1px black;
+  }
+
+
+  [type='text'],
+  [type='email'],
+  [type='url'],
+  [type='password'],
+  [type='number'],
+  [type='date'],
+  [type='datetime-local'],
+  [type='month'],
+  [type='search'],
+  [type='tel'],
+  [type='time'],
+  [type='week'],
+  [multiple],
+  textarea,
+  select {
+    @apply w-full rounded-md border border-border bg-background px-3 py-3 text-xs text-foreground placeholder-muted-foreground focus:z-10 focus:border-primary focus:outline-none focus:ring-primary;
+  }
+
+  [type='checkbox'],
+  [type='radio'] {
+    @apply h-4 w-4 rounded border-border bg-background text-primary focus:ring-2 focus:ring-primary;
+  }
+}
+
+@layer components {
+  .dropdown-content {
+    @apply pointer-events-none scale-95 opacity-0 duration-100 ease-in;
+  }
+
+  .dropdown:hover > .dropdown-content {
+    @apply pointer-events-auto block scale-100 animate-fade-in-up opacity-100 duration-200;
+  }
+}
+
+/** Scroll bar **/
+@supports selector(::-webkit-scrollbar) {
+  .supports-scrollbars\: pr-2 {
+    padding-right: 0.5rem;
+  }
+}
+
+/** Plugins **/
+@import './assets/styles/apexchart.scss';

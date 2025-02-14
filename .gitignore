@@ -1,0 +1,19 @@
+# Common
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+.env
+*.iml
+
+backend/src/main/resources/application.properties  # If contains secrets
+
+# Frontend specific
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/.cache/
+frontend/npm-debug.log
+frontend/coverage/
+frontend/.env

@@ -4,7 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { NgClass, NgIf } from '@angular/common';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../service/auth.service';
 
 
 
@@ -57,6 +57,12 @@ export class SignInComponent implements OnInit {
       (response) => {
         // Handle successful response
         console.log('Sign-in successful', response);
+
+
+         // Store user data in localStorage
+        localStorage.setItem('user', JSON.stringify(response.user));
+
+
         this.router.navigate(['/']);
       },
       (error) => {

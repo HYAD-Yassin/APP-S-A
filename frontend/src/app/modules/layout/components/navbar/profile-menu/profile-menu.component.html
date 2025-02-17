@@ -18,8 +18,8 @@
         <img class="rounded-md" src="https://avatars.githubusercontent.com/u/12519008?v=4" alt="" />
       </div>
       <div class="overflow-hidden px-2 text-sm font-semibold text-foreground">
-        Yassin HYAD
-        <p class="truncate text-ellipsis text-xs font-semibold text-muted-foreground">me&#64;lanno.dev</p>
+        {{ user?.username || 'Guest' }}
+        <p class="truncate text-ellipsis text-xs font-semibold text-muted-foreground">{{ user?.email || 'Not logged in' }} </p>
       </div>
     </div>
 
@@ -37,23 +37,7 @@
       }
     </ul>
     <hr class="border-dashed border-border" />
-    <div class="mx-4 my-2">
-      <span class="text-xs font-semibold text-foreground">Color</span>
-      <div class="mt-2 grid grid-cols-2 gap-2">
-        @for (item of themeColors; track $index) {
-        <div
-          :key="$index"
-          (click)="toggleThemeColor(item.name)"
-          [ngClass]="{ 'border-muted-foreground bg-card': item.name == themeService.theme().color }"
-          class="focus-visible:ring-ring inline-flex h-8 cursor-pointer items-center justify-start whitespace-nowrap rounded-md border border-border bg-background px-3 text-xs font-medium text-muted-foreground shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 hover:bg-card hover:text-foreground">
-          <span
-            [style.backgroundColor]="item.code"
-            class="mr-1 flex h-5 w-5 shrink-0 -translate-x-1 items-center justify-center rounded-full bg-rose-500"></span>
-          <p class="capitalize">{{ item.name }}</p>
-        </div>
-        }
-      </div>
-    </div>
+  
     <div class="mx-4 my-2">
       <span class="text-xs font-semibold text-foreground">Mode</span>
       <div class="mt-2 grid grid-cols-2 gap-2">

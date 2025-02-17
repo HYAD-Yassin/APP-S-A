@@ -36,6 +36,9 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   ],
 })
 export class ProfileMenuComponent implements OnInit {
+
+  user: any = null;
+
   public isOpen = false;
   public profileMenu = [
     {
@@ -57,40 +60,21 @@ export class ProfileMenuComponent implements OnInit {
 
   public themeColors = [
     {
-      name: 'base',
-      code: '#e11d48',
-    },
-    {
       name: 'yellow',
       code: '#f59e0b',
-    },
-    {
-      name: 'green',
-      code: '#22c55e',
-    },
-    {
-      name: 'blue',
-      code: '#3b82f6',
-    },
-    {
-      name: 'orange',
-      code: '#ea580c',
-    },
-    {
-      name: 'red',
-      code: '#cc0022',
-    },
-    {
-      name: 'violet',
-      code: '#6d28d9',
-    },
+    }
   ];
 
   public themeMode = ['light', 'dark'];
 
   constructor(public themeService: ThemeService) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      this.user = JSON.parse(storedUser);
+    }
+  }
 
   public toggleMenu(): void {
     this.isOpen = !this.isOpen;

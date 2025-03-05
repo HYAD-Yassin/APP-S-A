@@ -12,7 +12,7 @@ import { NgxSonnerToaster } from 'ngx-sonner';
   imports: [NgClass, RouterOutlet, ResponsiveHelperComponent, NgxSonnerToaster],
 })
 export class AppComponent {
-  title = 'Angular Tailwind';
+  title = 'Spring Boot + Angular 19 App';
 
   constructor(public themeService: ThemeService) {}
 }
